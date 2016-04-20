@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D5B9A8A1CC7FDFB00297287 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B9A891CC7FDFB00297287 /* AppModel.swift */; };
 		9DDAA0421CC721600084C673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAA0411CC721600084C673 /* AppDelegate.swift */; };
 		9DDAA0441CC721600084C673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAA0431CC721600084C673 /* ViewController.swift */; };
 		9DDAA0471CC721600084C673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDAA0451CC721600084C673 /* Main.storyboard */; };
 		9DDAA0491CC721600084C673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DDAA0481CC721600084C673 /* Assets.xcassets */; };
 		9DDAA04C1CC721600084C673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDAA04A1CC721600084C673 /* LaunchScreen.storyboard */; };
-		9DDAA0571CC721610084C673 /* simple_calcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAA0561CC721610084C673 /* simple_calcTests.swift */; };
-		9DDAA0621CC721610084C673 /* simple_calcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAA0611CC721610084C673 /* simple_calcUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D5B9A891CC7FDFB00297287 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		9DDAA03E1CC721600084C673 /* simple-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDAA0411CC721600084C673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DDAA0431CC721600084C673 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,11 +42,7 @@
 		9DDAA04B1CC721600084C673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DDAA04D1CC721600084C673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DDAA0521CC721610084C673 /* simple-calcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-calcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DDAA0561CC721610084C673 /* simple_calcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_calcTests.swift; sourceTree = "<group>"; };
-		9DDAA0581CC721610084C673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DDAA05D1CC721610084C673 /* simple-calcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-calcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DDAA0611CC721610084C673 /* simple_calcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_calcUITests.swift; sourceTree = "<group>"; };
-		9DDAA0631CC721610084C673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				9DDAA0401CC721600084C673 /* simple-calc */,
-				9DDAA0551CC721610084C673 /* simple-calcTests */,
-				9DDAA0601CC721610084C673 /* simple-calcUITests */,
 				9DDAA03F1CC721600084C673 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDAA0411CC721600084C673 /* AppDelegate.swift */,
+				9D5B9A891CC7FDFB00297287 /* AppModel.swift */,
 				9DDAA0431CC721600084C673 /* ViewController.swift */,
 				9DDAA0451CC721600084C673 /* Main.storyboard */,
 				9DDAA0481CC721600084C673 /* Assets.xcassets */,
@@ -105,24 +100,6 @@
 				9DDAA04D1CC721600084C673 /* Info.plist */,
 			);
 			path = "simple-calc";
-			sourceTree = "<group>";
-		};
-		9DDAA0551CC721610084C673 /* simple-calcTests */ = {
-			isa = PBXGroup;
-			children = (
-				9DDAA0561CC721610084C673 /* simple_calcTests.swift */,
-				9DDAA0581CC721610084C673 /* Info.plist */,
-			);
-			path = "simple-calcTests";
-			sourceTree = "<group>";
-		};
-		9DDAA0601CC721610084C673 /* simple-calcUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9DDAA0611CC721610084C673 /* simple_calcUITests.swift */,
-				9DDAA0631CC721610084C673 /* Info.plist */,
-			);
-			path = "simple-calcUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DDAA0441CC721600084C673 /* ViewController.swift in Sources */,
+				9D5B9A8A1CC7FDFB00297287 /* AppModel.swift in Sources */,
 				9DDAA0421CC721600084C673 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DDAA0571CC721610084C673 /* simple_calcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DDAA0621CC721610084C673 /* simple_calcUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +458,7 @@
 				9DDAA0681CC721610084C673 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DDAA0691CC721610084C673 /* Build configuration list for PBXNativeTarget "simple-calcTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +467,7 @@
 				9DDAA06B1CC721610084C673 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DDAA06C1CC721610084C673 /* Build configuration list for PBXNativeTarget "simple-calcUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +476,7 @@
 				9DDAA06E1CC721610084C673 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
