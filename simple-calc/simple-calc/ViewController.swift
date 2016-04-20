@@ -77,10 +77,15 @@ class ViewController: UIViewController {
     
     // Preform advanced operations
     @IBAction func Count(sender: UIButton) {
+        StoreOperationsModel.operands.append("count")
     }
+    
     @IBAction func Avg(sender: UIButton) {
+        StoreOperationsModel.operands.append("avg")
     }
+    
     @IBAction func Fact(sender: UIButton) {
+        StoreOperationsModel.operands.append("fact")
     }
 
     // Preform Equals
@@ -95,7 +100,7 @@ class ViewController: UIViewController {
         
         var i = 0
         let elemSize = StoreNumbersModel.elements.count
-//        var k = 0
+        
         if (elemSize - StoreOperationsModel.operands.count <= 1) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
@@ -103,7 +108,7 @@ class ViewController: UIViewController {
             while (!StoreNumbersModel.elements.isEmpty && !StoreOperationsModel.operands.isEmpty) {
                 let operation = StoreOperationsModel.operands.removeAtIndex(i)
                 var next = 0
-                
+            
                 if !StoreNumbersModel.elements.isEmpty {
                     next = StoreNumbersModel.elements.removeAtIndex(i + 1)
                 } else {
@@ -132,25 +137,9 @@ class ViewController: UIViewController {
                 }
             
                 i = i + 1
+            
             }
         }
-//        for var i = 0; i < Int(ceil(Double(StoreNumbersModel.elements.count) / 2.0)); i = i + 2 {
-//            let firstInput = StoreNumbersModel.elements[i]
-//            let secondInput = StoreNumbersModel.elements[i + 1]
-//            let operation = StoreOperationsModel.operands.removeAtIndex(k)
-//            if operation == "+" {
-//                eval = firstInput + secondInput
-//            } else if operation == "-" {
-//                eval = firstInput - secondInput
-//            } else if operation == "*" {
-//                eval = firstInput * secondInput
-//            } else if operation == "/" {
-//                eval = firstInput / secondInput
-//            } else if operation == "%" {
-//                eval = firstInput % secondInput
-//            }
-//            k = k + 1
-//        }
     }
     
     
