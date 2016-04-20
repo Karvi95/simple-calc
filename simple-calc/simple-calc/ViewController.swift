@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     
+    var eval = 0;
+    
     // Store Numbers in an array
     let StoreNumbersModel : StoreNumbers = StoreNumbers()
     
@@ -54,14 +56,23 @@ class ViewController: UIViewController {
     
     // Preform basic operations
     @IBAction func Add(sender: UIButton) {
+        StoreOperationsModel.operands.append("+")
     }
+    
     @IBAction func Minus(sender: UIButton) {
+        StoreOperationsModel.operands.append("-")
     }
+    
     @IBAction func Times(sender: UIButton) {
+        StoreOperationsModel.operands.append("*")
     }
+    
     @IBAction func Div(sender: UIButton) {
+        StoreOperationsModel.operands.append("/")
     }
+    
     @IBAction func Mod(sender: UIButton) {
+        StoreOperationsModel.operands.append("%")
     }
     
     // Preform advanced operations
@@ -74,6 +85,68 @@ class ViewController: UIViewController {
 
     // Preform Equals
     @IBAction func Equals(sender: UIButton) {
+        func factorial(x: Int) -> Int {
+            if x == 1 {
+                return 1
+            } else {
+                return (x * (factorial(x - 1)))
+            }
+        }
+        
+        var i = 0
+//        var k = 0
+        if (StoreNumbersModel.elements.count - StoreOperationsModel.operands.count <= 1) {
+            let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
+            eval += firstInput
+            
+            while (!StoreNumbersModel.elements.isEmpty && !StoreOperationsModel.operands.isEmpty) {
+                let operation = StoreOperationsModel.operands.removeAtIndex(i)
+                var next = 0
+                
+                if !StoreNumbersModel.elements.isEmpty {
+                    next = StoreNumbersModel.elements.removeAtIndex(i + 1)
+                } else {
+                    break
+                }
+                
+                if operation == "+" {
+                    eval = eval + next
+                } else if operation == "-" {
+                    eval = eval - next
+                } else if operation == "*" {
+                    eval = eval * next
+                } else if operation == "/" {
+                    eval = eval / next
+                } else if operation == "%" {
+                    eval = eval % next
+                } else if operation == "fact" {
+                    eval = factorial(Int(eval))
+                } else if operation == "count" {
+                    eval = eval + 1
+                } else if operation == "avg" {
+                    
+                }
+            
+                i = i + 1
+            }
+        }
+//        for var i = 0; i < Int(ceil(Double(StoreNumbersModel.elements.count) / 2.0)); i = i + 2 {
+//            let firstInput = StoreNumbersModel.elements[i]
+//            let secondInput = StoreNumbersModel.elements[i + 1]
+//            let operation = StoreOperationsModel.operands.removeAtIndex(k)
+//            if operation == "+" {
+//                eval = firstInput + secondInput
+//            } else if operation == "-" {
+//                eval = firstInput - secondInput
+//            } else if operation == "*" {
+//                eval = firstInput * secondInput
+//            } else if operation == "/" {
+//                eval = firstInput / secondInput
+//            } else if operation == "%" {
+//                eval = firstInput % secondInput
+//            }
+//            k = k + 1
+//        }
     }
     
     
