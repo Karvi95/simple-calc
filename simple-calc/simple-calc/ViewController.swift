@@ -94,8 +94,9 @@ class ViewController: UIViewController {
         }
         
         var i = 0
+        let elemSize = StoreNumbersModel.elements.count
 //        var k = 0
-        if (StoreNumbersModel.elements.count - StoreOperationsModel.operands.count <= 1) {
+        if (elemSize - StoreOperationsModel.operands.count <= 1) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
             
@@ -124,7 +125,10 @@ class ViewController: UIViewController {
                 } else if operation == "count" {
                     eval = eval + 1
                 } else if operation == "avg" {
-                    
+                    eval = eval + next
+                    if StoreOperationsModel.operands.isEmpty {
+                        eval = eval / elemSize
+                    }
                 }
             
                 i = i + 1
