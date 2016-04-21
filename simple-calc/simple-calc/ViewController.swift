@@ -225,8 +225,13 @@ class ViewController: UIViewController {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
             
+            let operation = StoreOperationsModel.operands[0]
+            if operation == "fact" {
+                operCheck = "fact"
+            }
             while (!StoreNumbersModel.elements.isEmpty && !StoreOperationsModel.operands.isEmpty) {
                 let operation = StoreOperationsModel.operands.removeAtIndex(0)
+
                 var next = 0
             
                 if !StoreNumbersModel.elements.isEmpty {
@@ -245,8 +250,6 @@ class ViewController: UIViewController {
                     eval = eval / next
                 } else if operation == "%" {
                     eval = eval % next
-                } else if operation == "fact" {
-                    eval = factorial(Int(eval))
                 } else if operation == "count" {
                     operCheck = "count"
                     eval = eval + 1
@@ -260,6 +263,12 @@ class ViewController: UIViewController {
                 i = i + 1
             
             }
+            
+            if operCheck == "fact" {
+                eval = factorial(firstInput)
+                EvaluatedResults.text = "THIS IS: \(eval)"
+            }
+            
             if operCheck == "count" {
                 eval -= (firstInput - 1)
             }
