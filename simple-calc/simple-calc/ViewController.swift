@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBAction func PressedZero(sender: UIButton) {
         StoreNumbersModel.elements.append(0)
     }
+    
     @IBAction func PressedOne(sender: UIButton) {
         StoreNumbersModel.elements.append(1)
     }
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
     @IBAction func PressedFour(sender: UIButton) {
         StoreNumbersModel.elements.append(4)
     }
+    
     @IBAction func PressedFive(sender: UIButton) {
         StoreNumbersModel.elements.append(5)
     }
@@ -45,9 +47,11 @@ class ViewController: UIViewController {
     @IBAction func PressedSeven(sender: UIButton) {
         StoreNumbersModel.elements.append(7)
     }
+    
     @IBAction func PressedEight(sender: UIButton) {
         StoreNumbersModel.elements.append(8)
     }
+    
     @IBAction func PressedNine(sender: UIButton) {
         StoreNumbersModel.elements.append(9)
     }
@@ -101,7 +105,7 @@ class ViewController: UIViewController {
         var i = 0
         let elemSize = StoreNumbersModel.elements.count
         
-        if (elemSize - StoreOperationsModel.operands.count <= 1) {
+        if ((elemSize - StoreOperationsModel.operands.count == 1) || (elemSize == 1 && StoreOperationsModel.operands.count == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
             
@@ -139,6 +143,8 @@ class ViewController: UIViewController {
                 i = i + 1
             
             }
+        } else {
+            NSLog("Improper input")
         }
     }
     
