@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     // Store Numbers in an array
     let StoreNumbersModel : StoreNumbers = StoreNumbers()
     
+    @IBOutlet weak var EvaluatedResults: UILabel!
+    
+    
     @IBAction func PressedZero(sender: UIButton) {
         StoreNumbersModel.elements.append(0)
     }
@@ -154,11 +157,11 @@ class ViewController: UIViewController {
             }
             
         } else {
-            NSLog("Improper input")
+            EvaluatedResults.text = "Improper input!"
         }
     
         // Set eval as output to be displayed.
-
+        EvaluatedResults.text = "Result: \(eval)"
         
     }
     
