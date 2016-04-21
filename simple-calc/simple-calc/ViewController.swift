@@ -94,6 +94,7 @@ class ViewController: UIViewController {
 
     // Preform Equals
     @IBAction func Equals(sender: UIButton) {
+        // Factorial Helper Function
         func factorial(x: Int) -> Int {
             if x == 1 {
                 return 1
@@ -102,9 +103,12 @@ class ViewController: UIViewController {
             }
         }
         
+        // Evaluate user-input after checking if it's valid.
         var i = 0
         let elemSize = StoreNumbersModel.elements.count
         let operSize = StoreOperationsModel.operands.count
+        var operCheck = ""
+        
         
         if ((elemSize - operSize == 1) || (elemSize == 1 && operSize == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
@@ -133,6 +137,7 @@ class ViewController: UIViewController {
                 } else if operation == "fact" {
                     eval = factorial(Int(eval))
                 } else if operation == "count" {
+                    operCheck = "count"
                     eval = eval + 1
                 } else if operation == "avg" {
                     eval = eval + next
@@ -144,11 +149,18 @@ class ViewController: UIViewController {
                 i = i + 1
             
             }
+            if operCheck == "count" {
+                eval -= (firstInput - 1)
+            }
+            
         } else {
             NSLog("Improper input")
         }
-    }
     
+        // Set eval as output to be displayed.
+
+        
+    }
     
     
     override func viewDidLoad() {
