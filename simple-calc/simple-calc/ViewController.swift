@@ -104,8 +104,9 @@ class ViewController: UIViewController {
         
         var i = 0
         let elemSize = StoreNumbersModel.elements.count
+        let operSize = StoreOperationsModel.operands.count
         
-        if ((elemSize - StoreOperationsModel.operands.count == 1) || (elemSize == 1 && StoreOperationsModel.operands.count == 1 && StoreOperationsModel.operands[0] == "fact")) {
+        if ((elemSize - operSize == 1) || (elemSize == 1 && operSize == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
             
