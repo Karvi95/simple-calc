@@ -10,6 +10,96 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: Properties
+    @IBOutlet var display : UILabel!
+    
+    var inputOccurring = false
+    
+    @IBAction func inputNumber (sender: UIButton) {
+        let input = sender.currentTitle!
+        
+        if inputOccurring {
+            display.text = display.text! + input
+        } else {
+            display.text = input
+            
+            inputOccurring = true
+        }
+    }
+    
+    var operators = Array<Double>()
+    
+    @IBAction func enter() {
+        inputOccurring = false
+        
+        operators.append(displayThis)
+    }
+    
+    var displayThis : Double {
+        get {
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        } set {
+            display.text = "\(newValue)"
+            inputOccurring = false
+        }
+        
+    }
+    
+    @IBAction func doMath (sender: UIButton) {
+        let operation = sender.currentTitle!
+        
+        if inputOccurring{
+            enter()
+        }
+        
+        switch operation {
+        case "+" : getNum {$0 + $1}
+        case "-" : getNum {$0 - $1}
+        case "*" : getNum {$0 * $1}
+        case "/" : getNum {$0 / $1}
+        case "%" : getNum {$0 % $1}
+        case "COUNT" :
+        case "AVG" :
+        case "FACT" : getNum {Double(factorial(Double($0)))}
+        default :
+            print("Not a valid operator")
+        }
+    }
+    
+    func add(left : Double, right : Double) -> Double {
+        return left + right
+    }
+    
+    func minus(left : Double, right : Double) -> Double {
+        return left - right
+    }
+    
+    func times(left : Double, right : Double) -> Double {
+        return left * right
+    }
+    
+    func div(left : Double, right : Double) -> Double {
+        return left / right
+    }
+    
+    func mod(left : Double, right : Double) -> Double {
+        return left % right
+    }
+    
+    func getNum (operation: (Double, Double) -> Double) {
+        if operators.count >= 2 {
+            displayThis = operation (operators.removeLast(), operators.removeLast())
+        }
+        
+    }
+    
+
+    func getNum (operation: Double -> Double) {
+        if operators.count >= 1 {
+            displayThis = operation (operators.removeLast())
+        }
+        
+    }
+    
     
     var eval = 0;
     
