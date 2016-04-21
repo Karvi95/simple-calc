@@ -20,42 +20,52 @@ class ViewController: UIViewController {
     
     
     @IBAction func PressedZero(sender: UIButton) {
+        EvaluatedResults.text = "0"
         StoreNumbersModel.elements.append(0)
     }
     
     @IBAction func PressedOne(sender: UIButton) {
+        EvaluatedResults.text = "1"
         StoreNumbersModel.elements.append(1)
     }
     
     @IBAction func PressedTwo(sender: UIButton) {
+        EvaluatedResults.text = "2"
         StoreNumbersModel.elements.append(2)
     }
     
     @IBAction func PressedThree(sender: UIButton) {
+        EvaluatedResults.text = "3"
         StoreNumbersModel.elements.append(3)
     }
     
     @IBAction func PressedFour(sender: UIButton) {
+        EvaluatedResults.text = "4"
         StoreNumbersModel.elements.append(4)
     }
     
     @IBAction func PressedFive(sender: UIButton) {
+        EvaluatedResults.text = "5"
         StoreNumbersModel.elements.append(5)
     }
     
     @IBAction func PressedSix(sender: UIButton) {
+        EvaluatedResults.text = "6"
         StoreNumbersModel.elements.append(6)
     }
     
     @IBAction func PressedSeven(sender: UIButton) {
+        EvaluatedResults.text = "7"
         StoreNumbersModel.elements.append(7)
     }
     
     @IBAction func PressedEight(sender: UIButton) {
+        EvaluatedResults.text = "8"
         StoreNumbersModel.elements.append(8)
     }
     
     @IBAction func PressedNine(sender: UIButton) {
+        EvaluatedResults.text = "9"
         StoreNumbersModel.elements.append(9)
     }
     
@@ -63,35 +73,43 @@ class ViewController: UIViewController {
     
     // Preform basic operations
     @IBAction func Add(sender: UIButton) {
+        EvaluatedResults.text = "+"
         StoreOperationsModel.operands.append("+")
     }
     
     @IBAction func Minus(sender: UIButton) {
+        EvaluatedResults.text = "-"
         StoreOperationsModel.operands.append("-")
     }
     
     @IBAction func Times(sender: UIButton) {
+        EvaluatedResults.text = "*"
         StoreOperationsModel.operands.append("*")
     }
     
     @IBAction func Div(sender: UIButton) {
+        EvaluatedResults.text = "/"
         StoreOperationsModel.operands.append("/")
     }
     
     @IBAction func Mod(sender: UIButton) {
+        EvaluatedResults.text = "%"
         StoreOperationsModel.operands.append("%")
     }
     
     // Preform advanced operations
     @IBAction func Count(sender: UIButton) {
+        EvaluatedResults.text = "count"
         StoreOperationsModel.operands.append("count")
     }
     
     @IBAction func Avg(sender: UIButton) {
+        EvaluatedResults.text = "avg"
         StoreOperationsModel.operands.append("avg")
     }
     
     @IBAction func Fact(sender: UIButton) {
+        EvaluatedResults.text = "fact"
         StoreOperationsModel.operands.append("fact")
     }
 
