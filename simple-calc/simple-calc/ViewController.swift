@@ -9,103 +9,102 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // MARK: Properties
-    @IBOutlet var display : UILabel!
-    
-    var inputOccurring = false
-    
-    @IBAction func inputNumber (sender: UIButton) {
-        let input = sender.currentTitle!
-        
-        if inputOccurring {
-            display.text = display.text! + input
-        } else {
-            display.text = input
-            
-            inputOccurring = true
-        }
-    }
-    
-    var operators = Array<Double>()
-    
-    @IBAction func enter() {
-        inputOccurring = false
-        
-        operators.append(displayThis)
-    }
-    
-    var displayThis : Double {
-        get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
-        } set {
-            display.text = "\(newValue)"
-            inputOccurring = false
-        }
-        
-    }
-    
-    @IBAction func doMath (sender: UIButton) {
-        let operation = sender.currentTitle!
-        
-        if inputOccurring{
-            enter()
-        }
-        
-        switch operation {
-        case "+" : getNum {$0 + $1}
-        case "-" : getNum {$0 - $1}
-        case "*" : getNum {$0 * $1}
-        case "/" : getNum {$0 / $1}
-        case "%" : getNum {$0 % $1}
-        case "COUNT" :
-        case "AVG" :
-        case "FACT" : getNum {Double(factorial(Double($0)))}
-        default :
-            print("Not a valid operator")
-        }
-    }
-    
-    func add(left : Double, right : Double) -> Double {
-        return left + right
-    }
-    
-    func minus(left : Double, right : Double) -> Double {
-        return left - right
-    }
-    
-    func times(left : Double, right : Double) -> Double {
-        return left * right
-    }
-    
-    func div(left : Double, right : Double) -> Double {
-        return left / right
-    }
-    
-    func mod(left : Double, right : Double) -> Double {
-        return left % right
-    }
-    
-    func getNum (operation: (Double, Double) -> Double) {
-        if operators.count >= 2 {
-            displayThis = operation (operators.removeLast(), operators.removeLast())
-        }
-        
-    }
-    
-
-    func getNum (operation: Double -> Double) {
-        if operators.count >= 1 {
-            displayThis = operation (operators.removeLast())
-        }
-        
-    }
-    
-    
+//    // MARK: Properties
+//    @IBOutlet var display : UILabel!
+//    
+//    var inputOccurring = false
+//    
+//    @IBAction func inputNumber (sender: UIButton) {
+//        let input = sender.currentTitle!
+//        
+//        if inputOccurring {
+//            display.text = display.text! + input
+//        } else {
+//            display.text = input
+//            
+//            inputOccurring = true
+//        }
+//    }
+//    
+//    var operators = Array<Double>()
+//    
+//    @IBAction func enter() {
+//        inputOccurring = false
+//        
+//        operators.append(displayThis)
+//    }
+//    
+//    var displayThis : Double {
+//        get {
+//            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+//        } set {
+//            display.text = "\(newValue)"
+//            inputOccurring = false
+//        }
+//        
+//    }
+//    
+//    @IBAction func doMath (sender: UIButton) {
+//        let operation = sender.currentTitle!
+//        
+//        if inputOccurring{
+//            enter()
+//        }
+//        
+//        switch operation {
+//        case "+" : getNum {$0 + $1}
+//        case "-" : getNum {$0 - $1}
+//        case "*" : getNum {$0 * $1}
+//        case "/" : getNum {$0 / $1}
+//        case "%" : getNum {$0 % $1}
+//        case "COUNT" :
+//        case "AVG" :
+//        case "FACT" : getNum {Double(factorial(Double($0)))}
+//        default :
+//            print("Not a valid operator")
+//        }
+//    }
+//    
+//    func add(left : Double, right : Double) -> Double {
+//        return left + right
+//    }
+//    
+//    func minus(left : Double, right : Double) -> Double {
+//        return left - right
+//    }
+//    
+//    func times(left : Double, right : Double) -> Double {
+//        return left * right
+//    }
+//    
+//    func div(left : Double, right : Double) -> Double {
+//        return left / right
+//    }
+//    
+//    func mod(left : Double, right : Double) -> Double {
+//        return left % right
+//    }
+//    
+//    func getNum (operation: (Double, Double) -> Double) {
+//        if operators.count >= 2 {
+//            displayThis = operation (operators.removeLast(), operators.removeLast())
+//        }
+//        
+//    }
+//    
+//
+//    func getNum (operation: Double -> Double) {
+//        if operators.count >= 1 {
+//            displayThis = operation (operators.removeLast())
+//        }
+//        
+//    }
+//    
+//    
     var eval = 0;
     
     // Store Numbers in an array
     let StoreNumbersModel : StoreNumbers = StoreNumbers()
-    var number = ""
     
     @IBOutlet weak var EvaluatedResults: UILabel!
     
@@ -204,17 +203,16 @@ class ViewController: UIViewController {
         StoreOperationsModel.operands.append("fact")
     }
 
-    func factorial(number: Int) -> (Int) {
-        if (number <= 1) {
-            return 1
-        }
-        return number * factorial(number - 1)
-    }
-    
     // Preform Equals
     @IBAction func Equals(sender: UIButton) {
         // Factorial Helper Function
-
+        func factorial(x: Int) -> Int {
+            if x == 1 {
+                return 1
+            } else {
+                return (x * (factorial(x - 1)))
+            }
+        }
         
         // Evaluate user-input after checking if it's valid.
         var i = 0
@@ -222,8 +220,6 @@ class ViewController: UIViewController {
         let operSize = StoreOperationsModel.operands.count
         var operCheck = ""
         
-        NSLog("\(StoreNumbersModel)")
-        NSLog("\(StoreOperationsModel)")
         
         if ((elemSize - operSize == 1) || (elemSize == 1 && operSize == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
@@ -231,7 +227,6 @@ class ViewController: UIViewController {
             
             while (!StoreNumbersModel.elements.isEmpty && !StoreOperationsModel.operands.isEmpty) {
                 let operation = StoreOperationsModel.operands.removeAtIndex(0)
-            
                 var next = 0
             
                 if !StoreNumbersModel.elements.isEmpty {
@@ -251,8 +246,7 @@ class ViewController: UIViewController {
                 } else if operation == "%" {
                     eval = eval % next
                 } else if operation == "fact" {
-                    eval = factorial(firstInput)
-                    NSLog("\(eval)")
+                    eval = factorial(Int(eval))
                 } else if operation == "count" {
                     operCheck = "count"
                     eval = eval + 1
