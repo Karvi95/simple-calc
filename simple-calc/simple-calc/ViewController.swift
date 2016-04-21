@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     // Store Numbers in an array
     let StoreNumbersModel : StoreNumbers = StoreNumbers()
+    var number = ""
     
     @IBOutlet weak var EvaluatedResults: UILabel!
     
@@ -113,16 +114,17 @@ class ViewController: UIViewController {
         StoreOperationsModel.operands.append("fact")
     }
 
+    func factorial(number: Int) -> (Int) {
+        if (number <= 1) {
+            return 1
+        }
+        return number * factorial(number - 1)
+    }
+    
     // Preform Equals
     @IBAction func Equals(sender: UIButton) {
         // Factorial Helper Function
-        func factorial(x: Int) -> Int {
-            if x == 1 {
-                return 1
-            } else {
-                return (x * (factorial(x - 1)))
-            }
-        }
+
         
         // Evaluate user-input after checking if it's valid.
         var i = 0
@@ -130,17 +132,20 @@ class ViewController: UIViewController {
         let operSize = StoreOperationsModel.operands.count
         var operCheck = ""
         
+        NSLog("\(StoreNumbersModel)")
+        NSLog("\(StoreOperationsModel)")
         
         if ((elemSize - operSize == 1) || (elemSize == 1 && operSize == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
             eval += firstInput
             
             while (!StoreNumbersModel.elements.isEmpty && !StoreOperationsModel.operands.isEmpty) {
-                let operation = StoreOperationsModel.operands.removeAtIndex(i)
+                let operation = StoreOperationsModel.operands.removeAtIndex(0)
+            
                 var next = 0
             
                 if !StoreNumbersModel.elements.isEmpty {
-                    next = StoreNumbersModel.elements.removeAtIndex(i + 1)
+                    next = StoreNumbersModel.elements.removeAtIndex(0)
                 } else {
                     break
                 }
@@ -156,7 +161,8 @@ class ViewController: UIViewController {
                 } else if operation == "%" {
                     eval = eval % next
                 } else if operation == "fact" {
-                    eval = factorial(Int(eval))
+                    eval = factorial(firstInput)
+                    NSLog("\(eval)")
                 } else if operation == "count" {
                     operCheck = "count"
                     eval = eval + 1
