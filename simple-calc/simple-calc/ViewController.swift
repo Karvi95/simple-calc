@@ -102,6 +102,8 @@ class ViewController: UIViewController {
 //    
 //    
     var eval = 0;
+    var index = 0
+    var display = ""
     
     // Store Numbers in an array
     let StoreNumbersModel : StoreNumbers = StoreNumbers()
@@ -110,53 +112,104 @@ class ViewController: UIViewController {
     
     
     @IBAction func PressedZero(sender: UIButton) {
-        EvaluatedResults.text = "0"
-        StoreNumbersModel.elements.append(0)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "0"
+        } else {
+            StoreNumbersModel.elements.append("0")
+        }
+        display += "0"
+        EvaluatedResults.text = display
+
     }
     
     @IBAction func PressedOne(sender: UIButton) {
-        EvaluatedResults.text = "1"
-        StoreNumbersModel.elements.append(1)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "1"
+        } else {
+            StoreNumbersModel.elements.append("1")
+        }
+        display += "1"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedTwo(sender: UIButton) {
-        EvaluatedResults.text = "2"
-        StoreNumbersModel.elements.append(2)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "2"
+        } else {
+            StoreNumbersModel.elements.append("2")
+        }
+        display += "2"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedThree(sender: UIButton) {
-        EvaluatedResults.text = "3"
-        StoreNumbersModel.elements.append(3)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "3"
+        } else {
+            StoreNumbersModel.elements.append("3")
+        }
+        display += "3"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedFour(sender: UIButton) {
-        EvaluatedResults.text = "4"
-        StoreNumbersModel.elements.append(4)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "4"
+        } else {
+            StoreNumbersModel.elements.append("4")
+        }
+        display += "4"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedFive(sender: UIButton) {
-        EvaluatedResults.text = "5"
-        StoreNumbersModel.elements.append(5)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "5"
+        } else {
+            StoreNumbersModel.elements.append("5")
+        }
+        display += "5"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedSix(sender: UIButton) {
-        EvaluatedResults.text = "6"
-        StoreNumbersModel.elements.append(6)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "6"
+        } else {
+            StoreNumbersModel.elements.append("6")
+        }
+        display += "6"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedSeven(sender: UIButton) {
-        EvaluatedResults.text = "7"
-        StoreNumbersModel.elements.append(7)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "7"
+        } else {
+            StoreNumbersModel.elements.append("7")
+        }
+        display += "7"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedEight(sender: UIButton) {
-        EvaluatedResults.text = "8"
-        StoreNumbersModel.elements.append(8)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "8"
+        } else {
+            StoreNumbersModel.elements.append("8")
+        }
+        display += "8"
+        EvaluatedResults.text = display
     }
     
     @IBAction func PressedNine(sender: UIButton) {
-        EvaluatedResults.text = "9"
-        StoreNumbersModel.elements.append(9)
+        if(StoreNumbersModel.elements.count > index) {
+            StoreNumbersModel.elements[index] += "9"
+        } else {
+            StoreNumbersModel.elements.append("9")
+        }
+        display += "9"
+        EvaluatedResults.text = display
     }
     
     let StoreOperationsModel : StoreOperations = StoreOperations()
@@ -164,42 +217,59 @@ class ViewController: UIViewController {
     // Preform basic operations
     @IBAction func Add(sender: UIButton) {
         EvaluatedResults.text = "+"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("+")
+        
     }
     
     @IBAction func Minus(sender: UIButton) {
         EvaluatedResults.text = "-"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("-")
     }
     
     @IBAction func Times(sender: UIButton) {
         EvaluatedResults.text = "*"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("*")
     }
     
     @IBAction func Div(sender: UIButton) {
         EvaluatedResults.text = "/"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("/")
     }
     
     @IBAction func Mod(sender: UIButton) {
         EvaluatedResults.text = "%"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("%")
     }
     
     // Preform advanced operations
     @IBAction func Count(sender: UIButton) {
         EvaluatedResults.text = "count"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("count")
     }
     
     @IBAction func Avg(sender: UIButton) {
         EvaluatedResults.text = "avg"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("avg")
     }
     
     @IBAction func Fact(sender: UIButton) {
         EvaluatedResults.text = "fact"
+        display = ""
+        index = index + 1
         StoreOperationsModel.operands.append("fact")
     }
 
@@ -223,7 +293,7 @@ class ViewController: UIViewController {
         
         if ((elemSize - operSize == 1) || (elemSize == 1 && operSize == 1 && StoreOperationsModel.operands[0] == "fact")) {
             let firstInput = StoreNumbersModel.elements.removeAtIndex(0)
-            eval += firstInput
+            eval += Int(firstInput)!
             
             let operation = StoreOperationsModel.operands[0]
             if operation == "fact" {
@@ -235,7 +305,7 @@ class ViewController: UIViewController {
                 var next = 0
             
                 if !StoreNumbersModel.elements.isEmpty {
-                    next = StoreNumbersModel.elements.removeAtIndex(0)
+                    next = Int(StoreNumbersModel.elements.removeAtIndex(0))!
                 } else {
                     break
                 }
@@ -265,12 +335,11 @@ class ViewController: UIViewController {
             }
             
             if operCheck == "fact" {
-                eval = factorial(firstInput)
-                EvaluatedResults.text = "THIS IS: \(eval)"
+                eval = factorial(Int(firstInput)!)
             }
             
             if operCheck == "count" {
-                eval -= (firstInput - 1)
+                eval -= (Int(firstInput)! - 1)
             }
             
         } else {

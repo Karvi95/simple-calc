@@ -9,7 +9,7 @@
 import Foundation
 
 class StoreNumbers {
-    var elements : [Int] = []
+    var elements : [String] = []
 }
 
 class StoreOperations {
